@@ -2,3 +2,5 @@ config.py
 *.csv
 *.json
 /past_data
+/__pycache__
+access_token.txt
