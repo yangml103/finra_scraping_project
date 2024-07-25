@@ -1,0 +1,4 @@
+config.py
+*.csv
+*.json
+/past_data
