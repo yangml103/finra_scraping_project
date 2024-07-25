@@ -7,14 +7,14 @@ client_secret = config.finra_api_secret
 access_token = config.finra_access_token
 
 # Define the API URL and parameters
-api_url = "https://api.finra.org/data/group/OTCMarket/name/weeklySummary"
+api_url = "https://api.finra.org/data/group/otcMarket/name/weeklySummary"
 params = {
-    "offset": 0,
     "limit": 20,
     "delimiter": ",",
     "quoteValues": "true",
     "async": "false",
-    "weekStartDate": "2024-06-03"
+    "dateRangeFilters": [{"startDate": "2024-06-03", "endDate": "2024-07-01", "fieldName": "lastUpdateDate"}],
+    "domainFilters": [{"fieldName": "summaryTypeCode", "values": ["ATS"]}]
 }
 headers = {
     "accept": "application/json",
@@ -23,7 +23,7 @@ headers = {
 }
 
 # # Make the GET request
-api_response = requests.get(api_url, headers=headers, params=params)
+api_response = requests.post(api_url, headers=headers, params=params)
 
 
 if api_response.status_code == 200:
@@ -31,7 +31,7 @@ if api_response.status_code == 200:
         response_json = api_response.json()
         print("API Response:", response_json)
         # Write the response to a file
-        with open('api_response_4.json', 'w') as file:
+        with open('api_response_1.json', 'w') as file:
             for entry in response_json:
                 file.write(f"{entry}\n")
     except requests.exceptions.JSONDecodeError:
