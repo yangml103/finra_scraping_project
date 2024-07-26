@@ -1,0 +1,7 @@
+# Calculate the Monday of 5 weeks in the past
+today = datetime.today()
+days_since_monday = today.weekday()  # Monday is 0 and Sunday is 6
+monday_5_weeks_ago = today - timedelta(weeks=5, days=days_since_monday)
+monday_10_weeks_ago = today - timedelta(weeks=10, days=days_since_monday)
+# Use this filter if you want to find the data ending 5 weeks ago
+date_filter_inputs_monday_5weeksago = [{'startDate': monday_10_weeks_ago.strftime('%Y-%m-%d'), 'endDate': monday_5_weeks_ago.strftime('%Y-%m-%d'), 'fieldName': 'lastUpdateDate'}] 

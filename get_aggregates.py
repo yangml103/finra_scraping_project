@@ -6,23 +6,19 @@ dataset_name = "weekly_summary"
 my_access_token = finra_access_token
 rows_returned = 20 # Change number depending on how much data you want 
 
-# Calculate the Monday of 5 weeks in the past
-today = datetime.today()
-days_since_monday = today.weekday()  # Monday is 0 and Sunday is 6
-monday_5_weeks_ago = today - timedelta(weeks=5, days=days_since_monday)
-monday_10_weeks_ago = today - timedelta(weeks=10, days=days_since_monday)
-# Use this filter if you want to find the data ending 5 weeks ago
-date_filter_inputs_monday_5weeksago = [{'startDate': monday_10_weeks_ago.strftime('%Y-%m-%d'), 'endDate': monday_5_weeks_ago.strftime('%Y-%m-%d'), 'fieldName': 'lastUpdateDate'}] 
 
-
-filters_input = {'summaryTypeCode': ['ATS_W_SMBL'], 'tierDescription' : ['NMS Tier 1']}
-date_filter_inputs = [{'startDate': '2024-06-03', 'endDate': '2024-07-01', 'fieldName': 'lastUpdateDate'}]
+#'summaryTypeCode': ['ATS_W_SMBL'], and ATS_W_SMBL_FIRM both work 
+filters_input = {'summaryTypeCode': ['ATS_W_SMBL_FIRM'], 'tierDescription' : ['NMS Tier 1']}
+# Chose 2024-06-03 to be safe since the data is most likely not going to change 
+# To find the actual data on the ots website https://otctransparency.finra.org/AtsIssueData
+# look for the weekly report on the start date, in this case 2024-06-03
+date_filter_inputs = [{'startDate': '2024-06-03', 'endDate': '2024-06-03', 'fieldName': 'weekStartDate'}]
 
 output_1 = finra_api_queries.retrieve_dataset(dataset_name, my_access_token, rows_returned,
                                             date_filter = date_filter_inputs,
                                             filters = filters_input) 
-
-output_1.to_csv('test_output3.csv', index=False)
+#print(output_1.content)
+output_1.to_csv('test_output_change_tierDescription2.csv', index=False)
 
 #print(finra_api_queries.show_filterable_columns(dataset_name, my_access_token))
 #['issueSymbolIdentifier', 'issueName', 'firmCRDNumber', 'MPID', 'marketParticipantName', '
