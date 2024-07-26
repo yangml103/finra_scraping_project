@@ -9,8 +9,6 @@ finra_access_token = "your_access_token"
 
 3) Run file get_ats_data to get the aggregate data
 
-4) the csv file contains all the ATS data
-
-5) OPTIONAL sort the data using sort_csv.py
+4) the outputs are saved to 2024_ats_data 
 
 
