@@ -5,15 +5,13 @@ finra_api_secret = "your_client_secret"
 
 2) Run get_access_token.py to get the access token and save it to config.py
 
-3) Run file get_aggregates to get the aggregate data
+finra_access_token = "your_access_token"
 
-4) Run get_individual_ats to get individual ats data per ticker
+3) Run file get_data to get the aggregate data
 
-5) The filtered data is saved to a csv file
+4) the aggregate data contains all the ATS data
 
-Note: get_data.py doesn't work as intended at the moment 
+5) OPTIONAL sort the data using sort_csv.py
 
-Need to find a way to get the correct number of rows returned from the api call
+Note: get_data.py WORKS 
 
-weekly summary contains the aggregates, you need to specify the exact company name to 
-see the individual ats data
