@@ -64,7 +64,7 @@ while True:
 
 # Write the response to a CSV file
 if all_data:
-    with open('aggregate_data.csv', 'w', newline='', encoding='utf-8') as csvfile:
+    with open('ats_data.csv', 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = all_data[0].keys()  # Assuming all entries have the same keys
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
