@@ -15,10 +15,10 @@ client_secret = config.finra_api_secret
 access_token = config.finra_access_token
 
 # Generate date ranges to automate downloading all the files e.g. in 2024 between 01-01 and 06-17
-date_ranges = generate_date_ranges("2024-01-01", "2024-06-17")
+date_ranges = generate_date_ranges("2022-01-03", "2022-12-26")
 
 # Directory to save the ats data
-output_dir = '2024_ats_data'
+output_dir = '2022_ats_data'
 os.makedirs(output_dir, exist_ok=True)
 
 # Define the API URL and parameters
@@ -29,7 +29,7 @@ params = {
     "delimiter": ",",
     "quoteValues": "true",
     "async": "false",
-    "dateRangeFilters": [{"startDate": "2024-06-03", "endDate": "2024-06-03", "fieldName": "weekStartDate"}],
+    "dateRangeFilters": [{"startDate": "2022-01-03", "endDate": "2022-12-26", "fieldName": "weekStartDate"}],
     "domainFilters": [{"fieldName": "summaryTypeCode", "values": ['ATS_W_SMBL_FIRM']},
                       {"fieldName": "tierDescription", "values": ['NMS Tier 1']}],
 }
@@ -39,10 +39,10 @@ headers = {
     "Authorization": f"Bearer {access_token}"
 }
 
-all_data = []
 
 for start_date, end_date in date_ranges:
 
+    all_data = []
     params['dateRangeFilters'][0]['startDate'] = start_date
     params['dateRangeFilters'][0]['endDate'] = end_date
     params['offset'] = 0  # Reset offset for each date range
@@ -70,8 +70,6 @@ for start_date, end_date in date_ranges:
             break
         # Add a 0.5-second delay between requests
         time.sleep(0.5)
-
-
 
     # Write the response to a CSV file
     if all_data:
