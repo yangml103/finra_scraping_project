@@ -29,7 +29,9 @@ def concatenate_files_per_month(folder_path):
         output_file = os.path.join(folder_path, f"{month}.csv")
         data.to_csv(output_file, index=False)
 
-# Example usage
-folder_path = '2023_ats_data'
+# Change folder_path depending on which year's data you want to concatenate
+folder_path = '2022_ats_data'
 concatenate_files_per_month(folder_path)
+
+# Output files are called 'january.csv', 'february.csv', etc.
 
