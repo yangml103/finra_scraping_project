@@ -11,4 +11,9 @@ finra_access_token = "your_access_token"
 
 4) the outputs are saved to 2024_ats_data 
 
+5) Currently there are 3 programs that you can use to process the monthly data - you can group by MPID, or by Issue Name or by Top 10 Issue Names PER MONTH
 
+NOTE:
+
+concat_ats_data concatenates data based on week start date NOT LAST UPDATE DATE.
+This could lead to data at the end of the month still being updated in the next month.
