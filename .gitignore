@@ -8,3 +8,6 @@ access_token.txt
 2023_ats_data
 2024_ats_data
 2022_ats_data
+*.png
+*.pptx
+*.ppt
