@@ -15,7 +15,7 @@ def process_monthly_files(directory):
     ]
 
     meme_stock_list = ['AMC', 'GME', 'BBBY', 'NOK', 'BLB',
-                      'TSLA', 'PLTR']
+                      'TSLA', 'PLTR', 'NVDA']
     
     monthly_data = {month: {} for month in months}
 
@@ -46,7 +46,7 @@ def process_monthly_files(directory):
 
 
 # Example usage
-directory_path = '2024_ats_data'
+directory_path = '2023_ats_data'
 process_monthly_files(directory_path)
 
     

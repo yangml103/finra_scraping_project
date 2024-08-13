@@ -15,10 +15,10 @@ client_secret = config.finra_api_secret
 access_token = config.finra_access_token
 
 # Generate date ranges to automate downloading all the files e.g. in 2024 between 01-01 and 06-17
-date_ranges = generate_date_ranges("2022-01-03", "2022-12-26")
+date_ranges = generate_date_ranges("2024-01-01", "2024-06-17")
 
 # Directory to save the ats data
-output_dir = '2022_ats_data'
+output_dir = '2024_ats_data'
 os.makedirs(output_dir, exist_ok=True)
 
 # Define the API URL and parameters
@@ -30,8 +30,8 @@ params = {
     "quoteValues": "true",
     "async": "false",
     "dateRangeFilters": [{"startDate": "2022-01-03", "endDate": "2022-12-26", "fieldName": "weekStartDate"}],
-    "domainFilters": [{"fieldName": "summaryTypeCode", "values": ['ATS_W_SMBL_FIRM']},
-                      {"fieldName": "tierDescription", "values": ['NMS Tier 1']}],
+    "domainFilters": [{"fieldName": "summaryTypeCode", "values": ['ATS_W_SMBL_FIRM', 'OTC_W_SMBL_FIRM']},
+                      {"fieldName": "tierDescription", "values": ['NMS Tier 1', 'NMS Tier 2']}],
 }
 headers = {
     "accept": "application/json",

@@ -7,9 +7,11 @@ finra_api_secret = "your_client_secret"
 
 finra_access_token = "your_access_token"
 
-3) Run file get_ats_data to get the aggregate data
+3) Run file get_ats_data_v2.py to get the aggregate data - MAKE SURE TO CHANGE DATE RANGE AND OUTPUT_DIR
 
-4) the outputs are saved to 2024_ats_data 
+#NOTE date range MUST match date ranges in week start date in ATS OTC website - otctransparency.finra.org/AtsDownload
+
+4) the outputs are saved to file name specified in OUTPUT_DIR 
 
 5) Currently there are 3 programs that you can use to process the monthly data - you can group by MPID, or by Issue Name or by Top 10 Issue Names PER MONTH
 

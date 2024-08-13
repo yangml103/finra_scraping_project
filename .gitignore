@@ -5,12 +5,11 @@ config.py
 /__pycache__
 access_token.txt
 /past_code
-2023_ats_data
-2024_ats_data
-2022_ats_data
 *.png
 *.pptx
 *.ppt
 project_notes.txt
 temp.txt
+20**_ats_data
+*.zip
 
