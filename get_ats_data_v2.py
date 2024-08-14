@@ -15,7 +15,7 @@ client_secret = config.finra_api_secret
 access_token = config.finra_access_token
 
 # Generate date ranges to automate downloading all the files e.g. in 2024 between 01-01 and 06-17
-date_ranges = generate_date_ranges("2024-01-01", "2024-06-17")
+date_ranges = generate_date_ranges("2024-01-22", "2024-06-17")
 
 # Directory to save the ats data
 output_dir = '2024_ats_data'

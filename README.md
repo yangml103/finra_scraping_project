@@ -13,7 +13,7 @@ finra_access_token = "your_access_token"
 
 4) the outputs are saved to file name specified in OUTPUT_DIR 
 
-5) Currently there are 3 programs that you can use to process the monthly data - you can group by MPID, or by Issue Name or by Top 10 Issue Names PER MONTH
+5) Currently there are 5 programs that you can use to process the data
 
 NOTE:
 
