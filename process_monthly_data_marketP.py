@@ -18,7 +18,7 @@ def process_monthly_files(directory):
                     print(f"Processing file: {filename}")
 
                     # Get unique MPIDs and their totalWeeklyShareQuantity
-                    for mpid, group in df.groupby('MPID'):
+                    for mpid, group in df.groupby('marketParticipantName'):
                         if mpid not in monthly_data[month]:
                             monthly_data[month][mpid] = 0
                         monthly_data[month][mpid] += group['totalWeeklyShareQuantity'].sum()
@@ -28,11 +28,10 @@ def process_monthly_files(directory):
     combined_data = []
     for month, data in monthly_data.items():
         for mpid, total in data.items():
-            combined_data.append({'Month': month, 'MPID': mpid, 'Total Share Quantity': total})
+            combined_data.append({'Month': month, 'marketParticipantName': mpid, 'Total Share Quantity': total})
 
     combined_df = pd.DataFrame(combined_data)
-    combined_df.to_csv(os.path.join(directory, f'{directory_path}_MPID.csv'), index=False)
-
+    combined_df.to_csv(os.path.join(directory, f'{directory_path}_marketParticipantName.csv'), index=False)
 
 
 # Example usage

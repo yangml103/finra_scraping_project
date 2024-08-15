@@ -13,4 +13,9 @@ temp.txt
 20**_ats_data
 *.zip
 *.csv
+/yearly_meme_stock_data
+/ats_data
+/combined_meme_stock_data.csv
+
+
 

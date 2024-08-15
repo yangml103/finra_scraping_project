@@ -50,7 +50,7 @@ def process_yearly_files(base_directory, years):
 
 # Example usage
 base_directory = 'ats_data'
-years = [2019, 2020, 2021, 2022]
+years = [2019, 2020, 2021, 2022, 2023, 2024]
 process_yearly_files(base_directory, years)
 
 
